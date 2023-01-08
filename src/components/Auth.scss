@@ -1,0 +1,72 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.auth-container {
+    width: 306px;
+    background: inherit;
+
+    .text-head {
+        font-family: 'Ubuntu';
+        font-size: 36px;
+        font-weight: 500;
+        line-height: 58px;
+        text-align: left;
+        color: $main-text;
+        margin: 0;
+        margin-bottom: 6px
+    }
+
+    .text {
+        @include ubuntu-regular-16-24;
+        color: $main-text;
+        margin: 0;
+        margin-bottom: 40px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        background-color: inherit;
+    }
+
+    .reset {
+        @include ubuntu-medium-14-20;
+        color: $main-accent;
+        cursor: pointer;
+        margin-top: 18px;
+        margin-bottom: 32px;
+
+        &:hover {
+            color: #2A3AC8;
+        }
+    }
+
+    .change-auth {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        @include ubuntu-regular-14-20;
+        color: $light-text;
+        margin-top: 16px;
+
+        &__text {
+            margin: 0;
+        }
+
+        &__link {
+            margin: 0;
+            text-decoration: underline;
+            transition: all 250ms ease-in-out;
+
+            &:hover {
+                color: $main-accent;
+                cursor: pointer;
+                text-decoration: none;
+            }
+        }
+    }
+
+    
+}

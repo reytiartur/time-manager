@@ -1,0 +1,23 @@
+/* shadow */
+.shadow {
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.09);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Ubuntu', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  height: 100vh;
+}
+
+.App {
+  height: 100vh;
+}
