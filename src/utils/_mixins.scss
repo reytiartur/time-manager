@@ -1,0 +1,115 @@
+@use './variables' as *;
+
+//FONTS
+@mixin ubuntu-bold-18-26 {   
+    font-family: 'Ubuntu';
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 26px;
+}
+
+@mixin ubuntu-bold-16-24 {   
+    font-family: 'Ubuntu';
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+}
+
+@mixin ubuntu-medium-16-24 {   
+    font-family: 'Ubuntu';
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+@mixin ubuntu-regular-16-24 {   
+    font-family: 'Ubuntu';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+@mixin ubuntu-medium-14-20 {   
+    font-family: 'Ubuntu';
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+@mixin ubuntu-regular-14-20 {   
+    font-family: 'Ubuntu';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+@mixin ubuntu-medium-12-16 {   
+    font-family: 'Ubuntu';
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+}
+
+@mixin ubuntu-bold-12-16 {   
+    font-family: 'Ubuntu';
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+}
+
+@mixin ubuntu-regular-12-16 {   
+    font-family: 'Ubuntu';
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+}
+
+@mixin ubuntu-light-12-16 {   
+    font-family: 'Ubuntu';
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 16px;
+}
+
+@mixin logo {
+    font-family: 'Karla', sans-serif;
+    font-size: 24px;
+    font-weight: 300;
+    cursor: alias;
+}
+
+//BUTTONS
+@mixin primary {
+    background-color: $main-accent;
+    color: $white;
+    border-radius: 8px;
+    @include ubuntu-bold-16-24;
+}
+
+@mixin primary-pressed {
+    background-color: #2A3AC8;
+    color: $white;
+    border-radius: 8px;
+    @include ubuntu-bold-16-24;
+}
+
+@mixin primary-hover {
+    background-color: #235DF1;
+    color: $white;
+    border-radius: 8px;
+    @include ubuntu-bold-16-24;
+}
+
+@mixin primary-inactive {
+    background-color: #CCE3FE;
+    color: $white;
+    border-radius: 8px;
+    @include ubuntu-bold-16-24;
+}
+
+@mixin secondary {
+    background-color: $light;
+    color: $main-text;
+    border-radius: 8px;
+    @include ubuntu-bold-16-24;
+}

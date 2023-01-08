@@ -1,0 +1,39 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.custom-button {
+    @include primary;
+    border: none;
+    padding-block: 10px;
+
+    &__default {
+        padding-inline: 32px;
+    }
+
+    &__project {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 11.5px;
+        width: 166px;
+        padding-block: 7px;
+    }
+
+    &__secondary {
+        @include secondary;
+
+    }
+
+    &__full {
+        width: 100%;
+    }
+
+    &:hover {
+        @include primary-hover;
+        cursor: pointer;
+    }
+
+    &:active {
+        @include primary-pressed;
+    }
+}
