@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail, onAuthStateChanged } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDRGxwEpr_ZWH34O6G52y0JDFuNuhdsF8s",
@@ -52,4 +52,35 @@ export const resetPassword = async (email) => {
             alert("Provide us with your email first.")
         }
     }
+}
+
+export const setCurrentUser = async (setUser) => {
+    await onAuthStateChanged(auth, async (currentUser) => {
+        if(!currentUser) {
+            setUser(null);
+            return;
+        } else {
+            const storeUser = {};
+            const userProperties = [
+                'displayName',
+                'email',
+                'emailVerified',
+                'isAnonymous',
+                'photoURL',
+                'providerData',
+                'providerId',
+                'refreshToken',
+                'uid',
+                'isAdmin'
+            ];
+
+            userProperties.map((prop) => {
+                if(prop in currentUser) {
+                    storeUser[prop] = currentUser[prop];
+                }
+            });
+            
+            setUser(storeUser)
+        }
+    })
 }

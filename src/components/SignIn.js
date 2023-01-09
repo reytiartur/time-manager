@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import CustomButton from './CustomButton'
 import CustomInput from './CustomInput'
-import { logInWithEmail, resetPassword } from '../utils/firebase'
+import { logInWithEmail, resetPassword, setCurrentUser } from '../utils/firebase'
 import { useNavigate } from 'react-router-dom'
 import './Auth.scss'
 import { ClosedEye, OpenEye } from '../assets/svgs'
+import { setUser } from '../features/userSlice'
+import { useDispatch } from 'react-redux'
 
 const SignIn = () => {
   const defaultInputs = {email: '', password: ''}
@@ -12,15 +14,16 @@ const SignIn = () => {
   const { email, password } = inputs
   const navigate = useNavigate()
   const [show, setShow] = useState(false)
+  const dispatch = useDispatch()
 
   const handleChange = (e) => {
     const { name, value} = e.target;
     setInputs({...inputs, [name]: value})
   }
 
-  const handleLogin = (e) => {
-    logInWithEmail(email, password)
-
+  const handleLogin = async (e) => {
+    await logInWithEmail(email, password)
+    await setCurrentUser((currentUser) => dispatch(setUser(currentUser)))
     setInputs(defaultInputs)
   }
 

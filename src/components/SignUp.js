@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import CustomButton from './CustomButton'
 import CustomInput from './CustomInput'
-import {createUserWithEmail} from '../utils/firebase'
+import {createUserWithEmail, setCurrentUser} from '../utils/firebase'
 import { useNavigate } from 'react-router-dom'
 import './Auth.scss'
 import { ClosedEye, OpenEye } from '../assets/svgs'
+import { setUser } from '../features/userSlice'
+import { useDispatch } from 'react-redux'
 
 const SignUp = () => {
   const defaultInputs = {userName: '', email: '', password: '', confirmPassword: ''}
@@ -12,6 +14,7 @@ const SignUp = () => {
   const { userName, email, password, confirmPassword } = inputs
   const navigate = useNavigate()
   const [show, setShow] = useState(false)
+  const dispatch = useDispatch()
 
   const handleChange = (e) => {
     const { name, value} = e.target;
@@ -27,8 +30,8 @@ const SignUp = () => {
     } 
 
     try {
-      const { user } = await createUserWithEmail(email, password)
-
+      await createUserWithEmail(email, password)
+      await setCurrentUser((currentUser) => dispatch(setUser(currentUser)))
       navigate('/')
     } catch (err) {
       console.log(err)

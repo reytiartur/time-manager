@@ -30,6 +30,11 @@
         display: flex;
         align-items: center;
         @include ubuntu-medium-14-20;
+
+        &:focus {
+            outline: 1px solid $main-accent;
+
+        }
     }
 
     .wrapper {
