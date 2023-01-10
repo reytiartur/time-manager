@@ -14,7 +14,7 @@ function App() {
       <Router>
         <Routes>
           {user ? (
-            <Route exact path='/' element={<Application />}>
+            <Route path='/' element={<Application />}>
               
             </Route>
           ) : (

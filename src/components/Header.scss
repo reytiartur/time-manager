@@ -1,0 +1,67 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.header {
+    display: flex;
+    align-items: center;
+    height: 76px;
+    border-bottom: 1px solid $stroke;
+
+    .logo {
+        height: 44px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        margin-inline: 2rem;
+
+        p {
+            margin: 0;
+            color: #000;
+            @include logo;
+        }
+
+        img {
+            height: 22px;
+        }
+    }
+
+    .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin-right: 2rem;
+
+        .tabs {
+            display: flex;
+            align-items: center;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+
+            .user-name {
+                @include ubuntu-medium-14-20;
+                color: $main-text;
+            }
+
+            .icon-bg {
+                background-color: $card-bg;
+                width: 2rem;
+                height: 2rem;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .icon {
+                    fill: $light-text;
+                    width: 22px;
+                    height: 22px;
+                }
+            }
+        }
+    }
+}
