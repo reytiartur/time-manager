@@ -1,0 +1,40 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.search {
+    width: 300px;
+    border: 1px solid $light-text;
+    position: relative;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+
+    .icon {
+        position: absolute;
+        fill: $light-text;
+        width: 17px;
+        height: 17px;
+        left: 13px;
+    }
+
+    input {
+        color: $light-text;
+        border: none;
+        outline: none;
+        width: 233px;
+        padding-left: 46px;
+        @include ubuntu-regular-14-20;
+    }
+
+    button {
+        flex-basis: 66px;
+        background: $light;
+        color: $main-text;
+        border: none;
+        border-left: 1px solid $light-text;
+        align-self: stretch;
+        @include ubuntu-regular-14-20;
+    }
+}
