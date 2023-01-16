@@ -1,0 +1,86 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.project-row {
+    display: table-row;
+    transition: 250ms;
+
+    td {
+        display: table-cell;
+        text-align: center;
+    }
+
+    td:first-child {
+        text-align: left;
+    }
+
+    .project-names {
+        padding-left: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        @include ubuntu-medium-14-20;
+        color: $main-text;
+        padding-block: 8px;
+
+        p {
+            margin: 0;
+        }
+
+        .project-client {
+            @include ubuntu-regular-12-16;
+            color: $light-text;
+        }
+    }
+
+    .project-period {
+        padding: 11px 32px;
+
+        .date {
+            @include ubuntu-regular-14-20;
+            color: $main-text;
+            padding-left: 12px;
+            padding-block: 6px;
+            border: 1px $light solid;
+            border-radius: 8px;
+            position: relative;
+
+            .progress {
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                z-index: -1;
+            }
+        }
+    }
+
+    .project-numbers {
+        @include ubuntu-regular-14-20;
+        color: $main-text;
+    }
+
+    .project-action {
+
+        .icon {
+            color: $main-text;
+        }
+    }
+
+    .danger {
+        background: $danger;
+    }
+
+    .warning {
+        background: $warning;
+    }
+
+    .grey {
+        background: $light;
+    }
+
+    &:hover {
+        background: $light;
+        cursor: pointer;
+    }
+}
