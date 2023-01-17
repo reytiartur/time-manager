@@ -94,14 +94,14 @@
 }
 
 @mixin primary-pressed {
-    background-color: #2A3AC8;
+    background-color: #4a59e0;
     color: $white;
     border-radius: 8px;
     @include ubuntu-bold-16-24;
 }
 
 @mixin primary-hover {
-    background-color: #235DF1;
+    background-color: #3569ed;
     color: $white;
     border-radius: 8px;
     @include ubuntu-bold-16-24;

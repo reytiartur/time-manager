@@ -54,6 +54,21 @@ export const ArchivedIcon = () => {
     )
 }
 
+export const UnarchiveIcon = () => (
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="#95AFB8" xmlns="http://www.w3.org/2000/svg" className="icon">
+        <g clipPath="url(#clip0_821_2420)">
+            <path d="M16.0241 2.6506H3.97594C3.5663 2.6506 3.25305 2.96386 3.25305 3.3735C3.25305 3.78313 3.5663 4.09639 3.97594 4.09639H16.0241C16.4338 4.09639 16.747 3.78313 16.747 3.3735C16.747 2.96386 16.4338 2.6506 16.0241 2.6506Z" fill="#95AFB8"/>
+            <path d="M14.8193 0H5.18078C4.77114 0 4.45789 0.313253 4.45789 0.722892C4.45789 1.13253 4.77114 1.44578 5.18078 1.44578H14.8193C15.229 1.44578 15.5422 1.13253 15.5422 0.722892C15.5422 0.313253 15.229 0 14.8193 0Z" fill="#95AFB8"/>
+            <path fillRule="evenodd" clipRule="evenodd" d="M3.97593 5.30121H16.0241C17.2289 5.30121 18.1928 6.26506 18.1928 7.46988V17.8313C18.1928 19.0361 17.2289 20 16.0241 20H3.97593C2.77111 20 1.80725 19.0361 1.80725 17.8313V7.46988C1.80725 6.26506 2.77111 5.30121 3.97593 5.30121ZM12.9242 12.3211C12.6899 12.5554 12.31 12.5554 12.0756 12.3211L10.6 10.8454V15.3044C10.6 15.6358 10.3314 15.9044 9.99999 15.9044C9.66862 15.9044 9.39999 15.6358 9.39999 15.3044V10.8452L7.92417 12.3211C7.68986 12.5554 7.30996 12.5554 7.07564 12.3211C6.84133 12.0867 6.84133 11.7068 7.07564 11.4725L9.57564 8.97253C9.80996 8.73822 10.1899 8.73822 10.4242 8.97253L12.9242 11.4725C13.1585 11.7068 13.1585 12.0867 12.9242 12.3211Z" fill="#95AFB8"/>
+        </g>
+        <defs>
+            <clipPath id="clip0_821_2420">
+                <rect width="20" height="20" fill="currentColor"/>
+            </clipPath>
+        </defs>
+    </svg>
+)
+
 export const ProfileIcon = () => {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="icon">
@@ -78,5 +93,38 @@ export const FilterIcon = () => (
 export const DropdownIcon = () => (
     <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg" className="icon">
         <path d="M11 1L6 6L1 1" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/>
+    </svg>
+)
+
+export const SortIcon = () => (
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="icon">
+        <g clipPath="url(#clip0_351_2417)">
+            <path d="M7.5 13L10 15.5L12.5 13" stroke="#114861" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M12.5 7.5L10 5L7.5 7.5" stroke="#114861" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+        </g>
+        <defs>
+        <clipPath id="clip0_351_2417">
+            <rect width="20" height="20" fill="white"/>
+        </clipPath>
+        </defs>
+    </svg>
+)
+
+export const CloseIcon = () => (
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="icon">
+        <path d="M10.6583 0.166672L5.99996 4.82501L1.34163 0.166672L0.166626 1.34167L4.82496 6L0.166626 10.6583L1.34163 11.8333L5.99996 7.175L10.6583 11.8333L11.8333 10.6583L7.17496 6L11.8333 1.34167L10.6583 0.166672Z" fill="#114861"/>
+    </svg>
+
+)
+
+export const CalendarIcon = () => (
+    <svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg" className="icon">
+        <path d="M10.6659 13.6666H1.3326C0.596221 13.6666 -0.000732422 13.0697 -0.000732422 12.3333V2.99998C-0.000732422 2.2636 0.596221 1.66665 1.3326 1.66665H2.66593V0.333313H3.99927V1.66665H7.99927V0.333313H9.3326V1.66665H10.6659C11.4023 1.66665 11.9993 2.2636 11.9993 2.99998V12.3333C11.9993 13.0697 11.4023 13.6666 10.6659 13.6666ZM1.3326 5.66665V12.3333H10.6659V5.66665H1.3326ZM1.3326 2.99998V4.33331H10.6659V2.99998H1.3326Z" fill="#95AFB8"/>
+    </svg>
+)
+
+export const PlusIcon = () => (
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="icon">
+        <path d="M10 20C4.47967 19.994 0.00606237 15.5204 0 10V9.80002C0.109931 4.30455 4.63459 -0.0720257 10.1307 0.000898217C15.6268 0.0738221 20.0337 4.5689 19.9978 10.0654C19.9619 15.5618 15.4966 19.9989 10 20ZM5 9.00002V11H9V15H11V11H15V9.00002H11V5.00002H9V9.00002H5Z" fill="currentColor"/>
     </svg>
 )

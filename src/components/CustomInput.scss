@@ -14,7 +14,6 @@
         color: $light-text;
         left: 1rem;
         padding: 1px;
-        z-index: 10;
         @include ubuntu-light-12-16;
     }
 
@@ -44,7 +43,6 @@
         top: 25%;
         bottom: 25%;
         right: 1rem;
-        z-index: 1;
 
         .icon {
             fill: $light-text;
@@ -55,5 +53,4 @@
             }
         }
     }
-
 }

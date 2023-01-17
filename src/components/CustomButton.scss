@@ -5,6 +5,7 @@
     @include primary;
     border: none;
     padding-block: 10px;
+    transition: 150ms ease-in-out;
 
     &__default {
         padding-inline: 32px;
@@ -19,11 +20,6 @@
         padding-block: 7px;
     }
 
-    &__secondary {
-        @include secondary;
-
-    }
-
     &__full {
         width: 100%;
     }
@@ -35,5 +31,15 @@
 
     &:active {
         @include primary-pressed;
+    }
+
+    &__secondary {
+        @include secondary;
+
+        &:hover {
+            cursor: pointer;
+            background-color: $light;
+            color: $light-text;
+        }
     }
 }

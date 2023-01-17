@@ -1,0 +1,40 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.inputs-container {
+    padding-inline: 30px;
+
+    .details {
+        margin-bottom: 42px;
+
+        .text {
+            @include ubuntu-regular-14-20;
+            color: $main-text;
+            margin: 0;
+            margin-bottom: 20px;
+        }
+
+        .rows {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+
+            .row {
+                display: flex;
+                flex-wrap: nowrap;
+                gap: 26px;
+                background-color: $white;
+            }
+
+            .technology {
+                display: flex;
+                align-items: center;
+
+                .icon {
+                    color: $main-accent;
+                    cursor: pointer;
+                }
+            }
+        }
+    } 
+}
