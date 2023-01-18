@@ -1,0 +1,56 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.filter-container {
+    display: flex;
+    align-items: center;
+
+    .clicker {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        margin-left: 2rem;
+        margin-right: 1rem;
+
+        .icon-container {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            fill: $main-text;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+    
+            &.active {
+                background: $main-text;
+                color: $white;
+            }
+        }
+
+        .text {
+            margin: 0;
+            margin-left: 8px;
+        }
+    }
+
+    .selectors-container {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+
+    button {
+        color: $main-text;
+        @include ubuntu-regular-12-14;
+        background: none;
+        border: none;
+        text-decoration: underline;
+        padding-inline: 10px;
+
+        &:hover {
+            color: $main-accent;
+            cursor: pointer;
+        }
+    }
+}    

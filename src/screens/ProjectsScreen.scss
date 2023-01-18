@@ -1,0 +1,11 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.actions-container {
+    display: flex;
+    margin: 17px 2rem 33px 2rem;
+
+    .custom-button {
+        margin-left: auto;
+    }
+}

@@ -1,20 +1,27 @@
 import currentUserReducer from './userSlice';
-import { configureStore } from '@reduxjs/toolkit'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
 import thunk from 'redux-thunk';
+import projectsReducer from './projectsSlice';
+import filtersReducer from './filtersSlice';
 
 const persistConfig = {
   key: 'root',
   storage,
+  blacklist: ['filters'],
 }
 
-const userReducer = persistReducer(persistConfig, currentUserReducer)
+const rootReducer = combineReducers({
+  user: currentUserReducer,
+  projects: projectsReducer,
+  filters: filtersReducer,
+});
+
+const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 export const store = configureStore({
-  reducer: {
-    user: userReducer,
-  },
+  reducer: persistedReducer,
   middleware: [thunk]
 })
 

@@ -1,0 +1,72 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.projects-table {
+    margin: 2rem;
+    width: calc(100% - 64px);
+    display: table;
+    border-collapse: collapse;
+    overflow: hidden;
+
+    .table-head {
+        background: $card-bg;
+        height: 40px;
+        @include ubuntu-regular-14-20;
+        color: $main-text;
+        display: table-header-group;
+        cursor: alias;
+
+        tr {
+            display: table-row;
+
+            td {
+                display: table-cell;
+                text-align: center;
+                position: relative;
+                width: 13.7%;
+    
+                &:first-child {
+                    text-align: start;
+                    padding-left: 20px;
+                    width: 20.55%;
+                }
+    
+                &:nth-child(2) {
+                    width: 19.5%;
+                }
+    
+                &:nth-child(3) {
+                    width: 15.9%;
+                }
+    
+                &:nth-child(4) {
+                    width: 16.2%;
+                }
+    
+                .icon {
+                    margin-left: 5px;
+                    position: absolute;
+                    top: 10px;
+                    pointer-events: none;
+                }
+            }
+
+            .sort {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .table-body {
+        height: 54px;
+
+        tr:nth-child(even) {
+            background: $card-bg;
+
+            &:hover {
+                background: $light;
+                cursor: pointer;
+            }
+        }
+    }
+}

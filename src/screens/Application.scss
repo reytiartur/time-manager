@@ -1,0 +1,7 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.main-container {
+    height: 100vh;
+    overflow: hidden;
+}
