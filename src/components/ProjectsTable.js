@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ProjectRow from './ProjectRow'
 import './ProjectsTable.scss'
 import { useSelector } from 'react-redux';
@@ -7,23 +7,51 @@ import { SortIcon } from '../assets/svgs';
 const ProjectsTable = () => {
   const projects = useSelector((state) => state.projects)
   const searchString = useSelector((state) => state.filters.search)
+  const filtersString = useSelector((state) => state.filters.filter)
+  const defaultProjects = projects.filter(project => !project.archived)
+  const [renderProjects, setRenderProjects] = useState(defaultProjects)
+  const [click, setClick] = useState(false)
+
+  const handleSort = (property) => {
+    const sorted = defaultProjects.sort((a,b) => (a[property] >= b[property]) ? 1 : ((b[property] >= a[property]) ? -1 : 0))
+    if(!click) {
+      setRenderProjects(sorted)
+    } else {
+      setRenderProjects(sorted.reverse())
+    }
+    setClick(!click)
+  }
+
+  useEffect(() => {
+    if(!filtersString?.period && !filtersString?.plan) {
+      setRenderProjects(defaultProjects)
+    } else {
+      const filteredProjects = defaultProjects.filter(project => project.timebankPlan.toLowerCase().includes(filtersString?.plan?.toLowerCase()) && project.periodColor.toLowerCase().includes(filtersString?.period?.toLowerCase()))
+      setRenderProjects(filteredProjects)
+    }
+  }, [filtersString])
 
   return (
     <table className='projects-table'>
       <thead className="table-head">
         <tr>
-          <td>Details</td>
+          <td onClick={() => setRenderProjects(defaultProjects)} className='sort'>Details</td>
           <td>Period</td>
-          <td>Timebank <SortIcon /></td>
-          <td>Hours spent <SortIcon /></td>
-          <td>Saldo <SortIcon /></td>
+          <td onClick={() => handleSort('timebank')} className='sort'>Timebank <SortIcon /></td>
+          <td onClick={() => handleSort('timebankSpent')} className='sort'>Hours spent <SortIcon /></td>
+          <td onClick={() => handleSort('timebank - timebankSpent')} className='sort'>Saldo <SortIcon /></td>
           <td>Actions</td>
         </tr>
       </thead>
       <tbody className='table-body'>
-        {projects?.map(project => (
+        {searchString ? renderProjects.filter(project => project.projectName.toLowerCase().includes(searchString.toLowerCase()) || project.client.toLowerCase().includes(searchString.toLowerCase())).map(project => (
           <ProjectRow key={project.projectNumber} project={project}  />
-        ))}
+        ))
+          :
+          renderProjects.map(project => (
+            <ProjectRow key={project.projectNumber} project={project}  />
+          )
+        )}
       </tbody>
     </table>
   )

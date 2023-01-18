@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux';
 import { ArchivedIcon, UnarchiveIcon } from '../assets/svgs'
 import { handleEdit } from '../features/projectsSlice';
@@ -17,6 +17,12 @@ const ProjectRow = ({ project }) => {
     const newObj = {...project, archived: !archived}
     dispatch(handleEdit(newObj))
   }
+
+  useEffect(() => {
+    const periodColor = saldo > timebank / 2 ? 'grey' : saldo < 40 ? 'red' : saldo < timebank / 2 ? 'yellow' : null;
+    const newObj = {...project, periodColor: periodColor}
+    dispatch(handleEdit(newObj))
+  }, [saldo])
 
   return (
     <tr className='project-row'>
