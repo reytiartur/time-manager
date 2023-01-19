@@ -18,7 +18,7 @@ const CustomSelect = ({name, options, inputs, setInputs, children, ...props}) =>
   return (
     <div className={`custom-selector ${selected ? 'selected' : null} ${open ? 'open' : null}`} onClick={handleOpen} onBlur={() => setOpen(false)} tabIndex={0}>
       <label htmlFor={children}>{children}</label>
-      <div className="text">{selected ? `${selected}`: null}</div>
+      <div className="content">{selected ? `${selected}`: null}</div>
       <DropdownIcon />
       <div className="options">{options.map(option => (
           <div key={option} className="option" onClick={() => handleSelect(option)}>{option}</div>

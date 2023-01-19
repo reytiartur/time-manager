@@ -27,7 +27,8 @@
     }
 
     &.selected {
-        .text {
+
+        .content {
             margin: 0;
             @include ubuntu-medium-14-20;
         }
