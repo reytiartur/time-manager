@@ -54,6 +54,13 @@
                 }
             }
         }
+
+        .popup-content {
+            padding-inline: 30px;
+            padding-bottom: 42px;
+            color: $main-text;
+            @include ubuntu-regular-14-20;
+        }
     
         .popup-footer {
             height: 80px;

@@ -2,10 +2,13 @@
 @use '../utils/mixins' as *;
 
 .inputs-container {
-    padding-inline: 30px;
 
     .details {
         margin-bottom: 42px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
 
         .text {
             @include ubuntu-regular-14-20;

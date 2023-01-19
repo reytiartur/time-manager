@@ -22,7 +22,7 @@
         height: 100%;
         border: 1px solid $light-text;
         border-radius: 8px;
-        color: $main-text;
+        color: $main-text !important;
         background: transparent;
         padding: 0 1rem;
         outline: none;

@@ -48,7 +48,7 @@ const SelectTechnology = ({options, name, inputs, setInputs, children, technolog
         <div style={{width: '20px', display: 'flex', justifyContent: 'center'}} onClick={() => deleteTechnology(technology)}>
           <CloseIcon />
         </div>) : (
-        <div onClick={handleAdd}>
+        <div style={{width: '20px', display: 'flex', justifyContent: 'center'}} onClick={handleAdd}>
           <PlusIcon />
         </div>
       )}

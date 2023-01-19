@@ -31,6 +31,10 @@ const ProjectsTable = () => {
     }
   }, [filtersString])
 
+  useEffect(() => {
+    setRenderProjects(defaultProjects)
+  }, [projects])
+
   return (
     <table className='projects-table'>
       <thead className="table-head">

@@ -20,7 +20,9 @@ const Popup = ({ header, handleAction, handleClose, actions, children, open, siz
             <CloseIcon />
           </div>
         </div>
-        {children}
+        <div className="popup-content">
+          {children}
+        </div>
         <span className='popup-footer'>
             <CustomButton size='secondary' onClick={handleClose}>{secondary}</CustomButton>
             <CustomButton onClick={handleSubmit}>{primary}</CustomButton>
