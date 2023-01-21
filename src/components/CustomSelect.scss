@@ -44,6 +44,7 @@
 
     .options {
         display: none;
+        text-align: start; 
         @include ubuntu-regular-14-20;
     }
 
@@ -82,6 +83,7 @@
 
             .option {
                 padding: 6px 15px;
+                border-top: 1px solid $light;
 
                 &:hover {
                     background: $light;

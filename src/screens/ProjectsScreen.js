@@ -55,7 +55,7 @@ const ProjectsScreen = () => {
         <Filter />
         <CustomButton size='project' onClick={handleOpen}><AddIcon /> Add project</CustomButton>
       </div>
-      <ProjectsTable />
+      <ProjectsTable archived={false} />
 
       <Popup setOpen={setOpen} handleAction={handleAdd} handleClose={handleClose} open={open} header='Create project' actions={['Cancel', 'Save']} size='big'>
         <NewProject inputs={inputs} setInputs={setInputs} />

@@ -13,6 +13,7 @@
         .text {
             @include ubuntu-regular-14-20;
             color: $main-text;
+            text-align: start;
             margin: 0;
             margin-bottom: 20px;
         }
