@@ -4,11 +4,11 @@ import './ProjectsTable.scss'
 import { useSelector } from 'react-redux';
 import { SortIcon } from '../assets/svgs';
 
-const ProjectsTable = () => {
+const ProjectsTable = ({archived}) => {
   const projects = useSelector((state) => state.projects)
   const searchString = useSelector((state) => state.filters.search)
   const filtersString = useSelector((state) => state.filters.filter)
-  const defaultProjects = projects.filter(project => !project.archived)
+  const defaultProjects = projects.filter(project => project.archived === archived)
   const [renderProjects, setRenderProjects] = useState(defaultProjects)
   const [click, setClick] = useState(false)
 
