@@ -5,11 +5,11 @@ import CustomRangePicker from './CustomRangePicker'
 import SelectTechnology from './SelectTechnology'
 import './NewProject.scss'
 
-const NewProject = ({inputs, setInputs}) => {
+const NewProject = ({inputs, setInputs, timebank, setTimebank}) => {
 
-  const handleChange = (e) => {
+  const handleChange = (e, setter) => {
     const { name, value } = e.target;
-    setInputs({...inputs, [name]: value})
+    setter((prevState) => ({...prevState, [name]: value}))
   }
   
   return (
@@ -18,11 +18,11 @@ const NewProject = ({inputs, setInputs}) => {
         <p className="text">Project details</p>
         <div className="rows">              
             <div className="row">
-            <CustomInput name='projectName' value={inputs.projectName} onChange={(e) => handleChange(e)}>Project name</CustomInput>
-            <CustomInput name='projectNumber' value={inputs.projectNumber} onChange={(e) => handleChange(e)}>Project number</CustomInput>
+            <CustomInput name='projectName' value={inputs.projectName} onChange={(e) => handleChange(e, setInputs)}>Project name</CustomInput>
+            <CustomInput name='projectNumber' value={inputs.projectNumber} onChange={(e) => handleChange(e, setInputs)}>Project number</CustomInput>
             </div>
             <div className="row">
-            <CustomInput size='250px' name='client' value={inputs.client} onChange={(e) => handleChange(e)}>Client</CustomInput>
+            <CustomInput size='250px' name='client' value={inputs.client} onChange={(e) => handleChange(e, setInputs)}>Client</CustomInput>
             <CustomSelect name='managers' options={['Katlin Kanyuk', 'Sergio Sergirini']} inputs={inputs} setInputs={setInputs}>Managers</CustomSelect>
             </div>
             <div className="row">
@@ -34,12 +34,12 @@ const NewProject = ({inputs, setInputs}) => {
         <p className="text">Timebank details</p>
         <div className="rows">
             <div className="row">
-            <CustomInput size='250px' name='timebankName' value={inputs.timebankName} onChange={(e) => handleChange(e)}>Timebank name</CustomInput>
-            <CustomSelect name='timebankPlan' options={['Standard (150 - 499 h)', 'Pro (500 - 1000 h)']} inputs={inputs} setInputs={setInputs}>Timebank plan</CustomSelect>
+            <CustomInput size='250px' name='name' value={timebank.name} onChange={(e) => handleChange(e, setTimebank)}>Timebank name</CustomInput>
+            <CustomSelect name='plan' options={['Standard (150 - 499 h)', 'Pro (500 - 1000 h)']} inputs={timebank} setInputs={setTimebank}>Timebank plan</CustomSelect>
             </div>
             <div className="row">
-            <CustomInput size='250px' name='timebank' value={inputs.timebank} onChange={(e) => handleChange(e)}>Timebank hours</CustomInput>
-            <CustomRangePicker inputs={inputs} setInputs={setInputs}>Period</CustomRangePicker>
+            <CustomInput size='250px' name='hours' value={timebank.hours} onChange={(e) => handleChange(e, setTimebank)}>Timebank hours</CustomInput>
+            <CustomRangePicker inputs={timebank} setInputs={setTimebank}>Period</CustomRangePicker>
             </div>
         </div>
         </div>

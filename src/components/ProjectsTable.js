@@ -26,7 +26,7 @@ const ProjectsTable = ({archived}) => {
     if(!filtersString?.period && !filtersString?.plan) {
       setRenderProjects(defaultProjects)
     } else {
-      const filteredProjects = defaultProjects.filter(project => project.timebankPlan.toLowerCase().includes(filtersString?.plan?.toLowerCase()) && project.periodColor.toLowerCase().includes(filtersString?.period?.toLowerCase()))
+      const filteredProjects = defaultProjects.filter(project => project?.timebank[0]?.plan?.toLowerCase().includes(filtersString?.plan?.toLowerCase()) && project?.timebank[0]?.periodColor?.toLowerCase().includes(filtersString?.period?.toLowerCase()))
       setRenderProjects(filteredProjects)
     }
   }, [filtersString])
@@ -41,9 +41,9 @@ const ProjectsTable = ({archived}) => {
         <tr>
           <td onClick={() => setRenderProjects(defaultProjects)} className='sort'>Details</td>
           <td>Period</td>
-          <td onClick={() => handleSort('timebank')} className='sort'>Timebank <SortIcon /></td>
-          <td onClick={() => handleSort('timebankSpent')} className='sort'>Hours spent <SortIcon /></td>
-          <td onClick={() => handleSort('timebank - timebankSpent')} className='sort'>Saldo <SortIcon /></td>
+          <td onClick={() => handleSort('timebank[0].hours')} className='sort'>Timebank <SortIcon /></td>
+          <td onClick={() => handleSort('timebank[0].hoursSpent')} className='sort'>Hours spent <SortIcon /></td>
+          <td onClick={() => handleSort('timebank[0].hours - timebank[0].hoursSpent')} className='sort'>Saldo <SortIcon /></td>
           <td>Actions</td>
         </tr>
       </thead>
