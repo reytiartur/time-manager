@@ -34,12 +34,62 @@
     }
 
     &__secondary {
+        padding-inline: 16px;
         @include secondary;
 
         &:hover {
+            @include secondary;
             cursor: pointer;
             background-color: $light;
             color: $light-text;
+        }
+    
+        &:active {
+            @include secondary;
+            cursor: pointer;
+            background-color: $light;
+            color: $light-text;
+        }
+    }
+
+    &__timebank {
+        border: 1px solid $main-text;
+        background: $white;
+        color: $main-text;
+        transition: all 200ms ease-in-out;
+        outline: none;
+        @include timebank;
+
+        &:hover {
+            background: $main-accent;
+            border-color: $main-accent;
+            color: $white;
+            @include timebank;
+        }
+
+        &.active {
+            background: $main-accent;
+            border-color: $main-accent;
+            color: $white;
+            @include timebank;
+        }
+    }
+
+    &__minor {
+        border: none;
+        background: none;
+        color: $main-accent;
+        text-decoration: underline;
+        transition: all 200ms ease-in-out;
+        @include ubuntu-medium-12-16;
+        padding: 0;
+
+        &:hover {
+            @include ubuntu-medium-12-16;
+            border: none;
+            background: none;
+            color: $blue-accent;
+            padding: 0;
         }
     }
 }

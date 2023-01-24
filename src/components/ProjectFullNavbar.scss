@@ -1,0 +1,48 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.project-nav {
+    padding-inline: 32px;
+    height: 40px;
+    margin-top: 24px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .assigned {
+        display: flex;
+        align-items: center;
+
+        p {
+            @include ubuntu-bold-16-24;
+            color: $main-text;
+            margin: 0;
+        }
+
+        .assigned-icons {
+            margin-left: 18px;
+            margin-right: 8px;
+            display: flex;
+            align-items: stretch;
+            gap: 6px;
+        }
+
+        .icon-wrapper {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+    
+            .icon {
+                color: $main-accent;
+                pointer-events: none;
+            }
+        }
+    }
+
+    .timebanks-buttons {
+        display: flex;
+        align-items: flex-end;
+        gap: 8px;
+    }
+}

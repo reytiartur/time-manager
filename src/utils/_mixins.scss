@@ -118,5 +118,15 @@
     background-color: $light;
     color: $main-text;
     border-radius: 8px;
-    @include ubuntu-bold-16-24;
+    @include ubuntu-medium-16-24;
+}
+
+@mixin timebank {
+    font-family: 'Ubuntu';
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    min-width: 86px;
+    border-radius: 6px;
+    padding: 6px 10px;
 }
