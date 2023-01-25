@@ -141,8 +141,25 @@ export const EditIcon = () => (
     </svg>
 )
 
-export const Attention = () => (
+export const AttentionIcon = () => (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="icon">
         <path d="M8 15.5C3.85786 15.5 0.5 12.1421 0.5 8C0.5 3.85786 3.85786 0.5 8 0.5C12.1421 0.5 15.5 3.85786 15.5 8C15.4955 12.1403 12.1403 15.4955 8 15.5ZM6.4925 7.2425V8.75H7.2425V11.75H9.5075V10.25H8.75L8.7575 7.24325L6.4925 7.2425ZM7.2425 4.25V5.76425H8.7575V4.25H7.2425Z" fill="#114861"/>
+    </svg>
+)
+
+export const DeleteIcon = () => (
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" className="icon">
+        <g clipPath="url(#clip0_942_2666)">
+            <path d="M3 5.25H15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M7.5 8.25V12.75" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M10.5 8.25V12.75" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M3.75 5.25L4.5 14.25C4.5 14.6478 4.65804 15.0294 4.93934 15.3107C5.22064 15.592 5.60218 15.75 6 15.75H12C12.3978 15.75 12.7794 15.592 13.0607 15.3107C13.342 15.0294 13.5 14.6478 13.5 14.25L14.25 5.25" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M6.75 5.25V3C6.75 2.80109 6.82902 2.61032 6.96967 2.46967C7.11032 2.32902 7.30109 2.25 7.5 2.25H10.5C10.6989 2.25 10.8897 2.32902 11.0303 2.46967C11.171 2.61032 11.25 2.80109 11.25 3V5.25" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </g>
+        <defs>
+            <clipPath id="clip0_942_2666">
+                <rect width="18" height="18" fill="white"/>
+            </clipPath>
+        </defs>
     </svg>
 )

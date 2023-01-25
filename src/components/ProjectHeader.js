@@ -31,7 +31,7 @@ const ProjectHeader = ({ project }) => {
         <header className='project-header'>
             <div className="back" onClick={() => navigate(-1)}>
                 <ArrowBack />
-                <p>MoneyFlow</p>
+                <p>{project.projectName}</p>
             </div>
             <CustomButton size='secondary' onClick={handleOpen}>{archived ? 'Unarchive project' : 'Archive project'}</CustomButton>
         </header>

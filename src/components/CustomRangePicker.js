@@ -5,8 +5,8 @@ import { CalendarIcon } from "../assets/svgs";
 import './CustomRangePicker.scss'
 
 const CustomRangePicker = ({inputs, setInputs, children}) => {
-    const [startDate, setStartDate] = useState(inputs.period?.start ?? '');
-    const [endDate, setEndDate] = useState(inputs.period?.end ?? '');
+    const [startDate, setStartDate] = useState(inputs.period[0] ? new Date(inputs.period[0]) : null);
+    const [endDate, setEndDate] = useState(inputs.period[1] ? new Date(inputs.period[1]) : null);
 
     const handleChange = (dates) => {
         const [start, end] = dates;
