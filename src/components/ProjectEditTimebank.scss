@@ -1,0 +1,145 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.edit-block {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    .edit-header {
+        margin: 0;
+        @include ubuntu-medium-12-16;
+        color: $light-text;
+        margin-bottom: 5px;
+    }
+
+    .edit-text-container {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+
+        .bank-row {
+            display: flex;
+            align-items: center;
+        
+            .edit-text {
+                margin: 0;
+                @include ubuntu-medium-14-20;
+                color: $main-text;
+            
+                &:first-child {
+                    margin-right: 10px;
+                }
+            }
+    
+            .ellipse {
+                width: 4px;
+                height: 4px;
+                border-radius: 50%;
+                background-color: $main-accent;
+                margin-inline: 6px;
+            }
+        }
+    }
+
+    .icons-wrapper-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: fit-content;
+        height: 20px;
+        display: flex;
+        gap: 10px;
+
+        .edit-icon-wrapper {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $light-text;
+            cursor: pointer;
+            position: static;
+    
+            .icon {
+                transition: color 200ms ease-in-out;
+                pointer-events: none;
+                width: 15px;
+                height: 15px;
+            }
+    
+            &:hover .icon {
+                color: $main-accent;
+            }
+        }
+    }
+
+    button {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+}
+
+.see-all-timebanks {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px $stroke dashed;
+    height: 44px;
+    align-items: center;
+
+    .bank-row {
+        display: flex;
+        align-items: center;
+    
+        .edit-text {
+            margin: 0;
+            @include ubuntu-medium-14-20;
+            color: $main-text;
+        
+            &:first-child {
+                margin-right: 10px;
+            }
+        }
+
+        .current {
+            margin: 0;
+            color: $light-text;
+            margin-left: 6px;
+        }
+
+        .ellipse {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: $main-accent;
+            margin-inline: 6px;
+        }
+    }
+
+    .icons-wrapper-container {
+        width: auto;
+        height: 20px;
+        display: flex;
+        gap: 10px;
+
+        .icon-wrapper {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+    
+            .icon {
+                transition: color 200ms ease-in-out;
+                pointer-events: none;
+                color: $light-text;
+            }
+    
+            &:hover .icon {
+                color: $main-accent;
+            }
+        }
+    }
+}

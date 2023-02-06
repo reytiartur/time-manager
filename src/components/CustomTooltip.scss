@@ -1,0 +1,40 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.MuiTooltip-popper {
+    max-width: 200px;
+
+
+    .MuiTooltip-tooltip {
+        display: flex;
+        align-items: center;
+        gap: 9.5px;
+        padding: 6px 12px;
+        background: $white;
+        border-radius: 4px;
+        box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.2);
+
+        p {
+            @include ubuntu-regular-14-20;
+            color: $main-text;
+            margin: 0;
+        }
+
+        .icon {
+            flex-shrink: 0;
+            width: 15px;
+            height: 15px;
+            fill: $main-text;
+            pointer-events: none;
+        }
+
+    }
+        
+    .MuiTooltip-tooltipArrow {
+            
+        .MuiTooltip-arrow {
+            background: none;
+            color: $white;
+        }
+    }
+}

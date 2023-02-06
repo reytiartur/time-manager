@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import { AddIcon } from '../assets/svgs'
 import CustomButton from '../components/CustomButton'
 import Filter from '../components/Filter'
@@ -10,17 +10,15 @@ import { useDispatch } from 'react-redux'
 import { addProject } from '../features/projectsSlice'
 import NewProject from '../components/NewProject'
 
+const defaultTimebank = {name: '', plan: '', hours: '', period: '', hoursSpent: 0}
+
 const defaultInputs = {
   projectName: '',
   projectNumber: '',
   client: '',
   managers: [''],
   projectType: '',
-  timebankName: '',
-  timebankPlan: '',
-  timebank: '',
-  period: '',
-  hoursSpent: 0,
+  timebank: [],
   archived: false,
   pricePerHour: [],
 }
@@ -28,6 +26,7 @@ const defaultInputs = {
 const ProjectsScreen = () => {
   const [open, setOpen] = useState(false)
   const [inputs, setInputs] = useState(defaultInputs)
+  const [timebank, setTimebank] = useState(defaultTimebank)
   const dispatch = useDispatch()
 
   const handleOpen = () => {
@@ -46,7 +45,12 @@ const ProjectsScreen = () => {
 
   const handleDefault = () => {
     setInputs(defaultInputs)
+    setTimebank(defaultTimebank)
   }
+
+  useEffect(() => {
+    setInputs({...inputs, timebank: [{...timebank}]})
+  }, [timebank])
 
   return (
     <Fragment>
@@ -58,7 +62,7 @@ const ProjectsScreen = () => {
       <ProjectsTable archived={false} />
 
       <Popup setOpen={setOpen} handleAction={handleAdd} handleClose={handleClose} open={open} header='Create project' actions={['Cancel', 'Save']} size='big'>
-        <NewProject inputs={inputs} setInputs={setInputs} />
+        <NewProject inputs={inputs} setInputs={setInputs} timebank={timebank} setTimebank={setTimebank} />
       </Popup>
     </Fragment>
   )

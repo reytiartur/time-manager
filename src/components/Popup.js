@@ -3,7 +3,7 @@ import './Popup.scss'
 import CustomButton from './CustomButton'
 import { CloseIcon } from '../assets/svgs';
 
-const Popup = ({ header, handleAction, handleClose, actions, children, open, size='small', setOpen, ...props}) => {
+const Popup = ({ header, handleAction, handleClose, actions, children, open, size='small', ...props}) => {
   const [secondary, primary] = actions;
 
   const handleSubmit = () => {
@@ -24,7 +24,7 @@ const Popup = ({ header, handleAction, handleClose, actions, children, open, siz
           {children}
         </div>
         <span className='popup-footer'>
-            <CustomButton size='secondary' onClick={handleClose}>{secondary}</CustomButton>
+            {secondary ? <CustomButton size='secondary' onClick={handleClose}>{secondary}</CustomButton> : null}
             <CustomButton onClick={handleSubmit}>{primary}</CustomButton>
         </span>
       </div>}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { CloseIcon, DropdownIcon, PlusIcon } from '../assets/svgs'
+import CustomButton from './CustomButton'
 import CustomInput from './CustomInput'
 import './CustomSelect.scss'
 
@@ -28,12 +29,13 @@ const SelectTechnology = ({options, name, inputs, setInputs, children, technolog
   }
 
   const deleteTechnology = (technology) => {
-    const index = inputs[name].indexOf(technology);
-    setInputs({...inputs, [name]: [...[name].slice(0, index), ...[name].slice(index + 1)]})
+    const obj = inputs[name].find(tech => tech.name === technology.name && tech.price === technology.price)
+    const index = inputs[name].indexOf(obj)
+    setInputs({...inputs, [name]: [...inputs[name].slice(0, index), ...inputs[name].slice(index + 1)]})
   }
 
   return (
-    <>
+    <div className="row technology">
       <div className={`custom-selector ${selected ? 'selected' : null} ${open ? 'open' : null}`} onClick={handleOpen} onBlur={() => setOpen(false)} tabIndex={0}>
         <label htmlFor={children}>{children}</label>
         <div className="content">{selected ? `${selected}`: null}</div>
@@ -52,7 +54,7 @@ const SelectTechnology = ({options, name, inputs, setInputs, children, technolog
           <PlusIcon />
         </div>
       )}
-    </>
+    </div>
   )
 }
 

@@ -1,0 +1,28 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.project-edits {
+    display: flex;
+    justify-content: center;
+    gap: 23px;
+    margin-inline: 2rem;
+    margin-top: 21px;
+
+    .edits-container {
+        min-width: 390px;
+        display: flex;
+        flex-direction: column;
+        flex: 1 0 390px;
+        height: 145px;
+        background: $card-bg;
+        border-radius: 8px;
+        padding: 19px 21px 18px 20px;
+
+        .divider {
+            width: 100%;
+            height: 0px;
+            border-bottom: 1px dashed $stroke;
+            margin-block: 14px;
+        }
+    }
+}

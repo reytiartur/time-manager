@@ -1,0 +1,239 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+
+.calendar-container {
+    margin-inline: 2rem;
+    margin-bottom: 25px;
+    border: 1px solid $stroke;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    .calendar-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 20px;
+        border-bottom: 1px solid $stroke;
+
+        .calendar-info {
+            display: flex;
+            align-items: center;
+
+            .header-block {
+                display: flex;
+                align-items: center;
+    
+                p {
+                    margin: 0;
+                    color: $main-text;
+                }
+    
+                .header-title {
+                    margin-right: 5px;
+                    @include ubuntu-medium-16-24;
+                }
+    
+                .header-text {
+                    @include ubuntu-bold-16-24;
+                }
+            }
+    
+            .ellipse {
+                width: 4px;
+                height: 4px;
+                border-radius: 50%;
+                background-color: $light-text;
+                margin-inline: 12px;
+            }
+        }
+
+        .calendar-selector {
+            display: flex;
+            align-items: center;
+
+            .icon-wrapper {
+                display: flex;
+                cursor: pointer;
+                margin-right: 19px;
+                 
+                .icon {
+                    pointer-events: none;
+                }
+            }
+            
+            .month-selector {
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                width: 150px;
+                text-align: center;
+    
+                .icon {
+                    pointer-events: none;
+                }
+    
+                .month {
+                    margin: 0;
+                    @include ubuntu-bold-16-24;
+                    color: $main-text;
+                }
+            }
+        }
+    }
+
+    .week-names {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        
+        .week-name {
+            padding-left: 20px;
+            padding-block: 7px;
+            color: $light-text;
+            text-transform: uppercase;
+            border-right: 1px solid $stroke;
+            @include ubuntu-medium-14-16;
+
+            &:last-child {
+                border-right: none;
+            }
+        }
+    }
+
+    .calendar-grid {
+        display: grid;
+        grid-auto-rows: 1fr;
+        @include ubuntu-regular-14-16;
+        color: $main-text;
+        flex: 1;
+
+        .week {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+
+            .day {
+                padding-left: 13px;
+                padding-top: 9px;
+                border-top: 1px solid $stroke;
+                border-right: 1px solid $stroke;
+                text-align: center;
+                display: flex;
+                align-items: flex-start;
+                position: relative;
+                transition: 250ms ease-in-out;
+                gap: 8px;
+    
+                &:hover {
+                    background-color: $card-bg;
+                    cursor: pointer;
+                }
+
+                &:last-child {
+                    border-right: none;
+                }
+    
+                .date {
+                    width: 30px;
+                    border-radius: 50%;
+                    padding: 7px;
+                    margin-top: 4px;
+                    text-align: center;
+                    cursor: alias;
+                }
+
+                .day-content {
+                    flex-grow: 2;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+
+                    .icon-wrapper {
+                        display: flex;
+                        visibility: hidden;
+                        gap: 5.5px;
+                        align-items: center;
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        transition: 250ms linear;
+                        transition-delay: 150ms;
+
+                        .icon {
+                            width: 15px;
+                            height: 15px;
+                            color: $main-accent;
+                        }
+    
+                        p {
+                            margin: 0;
+                            @include ubuntu-light-12-16;
+                            color: $light-text;
+                        }
+                    }
+
+                    .tasks-container {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 4px;
+                    }
+
+                    .buttons-container {
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-end;
+                        padding: 10px 12px 8px 0px;
+                        gap: 10px;
+
+                        .icon {
+                            pointer-events: none;
+                            width: 14px;
+                            height: 14px;
+                            fill: $main-text;
+
+                            &.edit-icon {
+                                color: $main-accent;
+                                transition: 250ms ease-in;
+                                transition-delay: 150ms;
+                                transform: scale(0);
+                            }
+                        }
+
+                    }
+                }
+
+                &:hover .day-content .icon-wrapper {
+                    visibility: visible;
+                    transform: translateX(-11px) translateY(15px);
+                }
+
+                &:hover .day-content .buttons-container .edit-icon {
+                    transform: scale(1);
+                }
+            }
+    
+            .inactiveDay {
+                color: $light-text;
+            }
+            
+            .today {
+                border-top-color: $blue-accent;
+    
+                .date {
+                    background-color: $blue-accent;
+                    color: $white;
+                    cursor: alias;
+                    @include ubuntu-medium-14-16;
+                }
+            }
+        }
+    }
+}
+
+.content-text {
+    margin-bottom: 30px;
+}
+

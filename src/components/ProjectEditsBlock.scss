@@ -1,0 +1,44 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.edit-block {
+    position: relative;
+    width: 100%;
+
+    .edit-header {
+        margin: 0;
+        @include ubuntu-medium-12-16;
+        color: $light-text;
+        margin-bottom: 5px;
+    }
+
+    .edit-text {
+        margin: 0;
+        @include ubuntu-medium-14-20;
+        color: $main-text;
+    }
+
+    .edit-icon-wrapper {
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $light-text;
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+
+        .icon {
+            transition: color 200ms ease-in-out;
+            pointer-events: none;
+            width: 15px;
+            height: 15px;
+        }
+
+        &:hover .icon {
+            color: $main-accent;
+        }
+    }
+}

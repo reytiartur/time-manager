@@ -34,6 +34,12 @@
             outline: 1px solid $main-accent;
 
         }
+
+        &::placeholder {
+            color: $light-text;
+            opacity: 1;
+            @include ubuntu-regular-14-20;
+          }
     }
 
     .wrapper {

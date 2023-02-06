@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 import Application from './screens/Application';
 import ProjectsScreen from './screens/ProjectsScreen';
 import Archived from './screens/Archived';
+import ProjectFullScreen from './screens/ProjectFullScreen';
 
 function App() {
   const user = useSelector((state) => state.user)
@@ -16,10 +17,13 @@ function App() {
       <Router>
         <Routes>
           {user ? (
-            <Route path='/' element={<Application />}>
-              <Route path='projects' element={<ProjectsScreen />} />
-              <Route path='archived' element={<Archived />} />
-            </Route>
+            <>
+              <Route path='/' element={<Application />}>
+                <Route path='projects' element={<ProjectsScreen />} />
+                <Route path='archived' element={<Archived />} />
+              </Route>
+              <Route path='projects/:projectNumber' element={<ProjectFullScreen />} />
+            </>
           ) : (
             <Route path='/' element={<AuthPage />}>
               <Route index element={<SignIn />} />

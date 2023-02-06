@@ -39,18 +39,24 @@
         .date {
             @include ubuntu-regular-14-20;
             color: $main-text;
-            padding-left: 12px;
             padding-block: 6px;
             border: 1px $light solid;
             border-radius: 8px;
             position: relative;
+            overflow: hidden;
+
+            .date-text {
+                position: relative;
+                margin: 0;
+                z-index: 2;
+            }
 
             .progress {
                 position: absolute;
                 top: 0;
                 left: 0;
                 bottom: 0;
-                z-index: -1;
+                z-index: 1;
             }
         }
     }
@@ -61,9 +67,18 @@
     }
 
     .project-action {
+        
+        #archive {
+            width: 40px;
+            height: 40px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-        .icon {
-            color: $main-text;
+            .icon {
+                color: $main-text;
+            }
         }
     }
 

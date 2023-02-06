@@ -43,10 +43,24 @@
     line-height: 20px;
 }
 
+@mixin ubuntu-medium-14-16 {   
+    font-family: 'Ubuntu';
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+}
+
+@mixin ubuntu-regular-14-16 {   
+    font-family: 'Ubuntu';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+}
+
 @mixin ubuntu-medium-12-16 {   
     font-family: 'Ubuntu';
     font-size: 12px;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 16px;
 }
 
@@ -69,6 +83,13 @@
     font-size: 12px;
     font-weight: 300;
     line-height: 16px;
+}
+
+@mixin ubuntu-light-12-14 {   
+    font-family: 'Ubuntu';
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 14px;
 }
 
 @mixin ubuntu-regular-12-14 {   
@@ -118,5 +139,15 @@
     background-color: $light;
     color: $main-text;
     border-radius: 8px;
-    @include ubuntu-bold-16-24;
+    @include ubuntu-medium-16-24;
+}
+
+@mixin timebank {
+    font-family: 'Ubuntu';
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    min-width: 86px;
+    border-radius: 6px;
+    padding: 6px 10px;
 }

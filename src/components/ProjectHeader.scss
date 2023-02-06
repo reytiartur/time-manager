@@ -1,0 +1,28 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.project-header {
+    display: flex;
+    align-items: center;
+    height: 72px;
+    border-bottom: 1px solid $stroke;
+    justify-content: space-between;
+    margin-inline: 2rem;
+
+    .back {
+        display: flex;
+        align-items: center;
+        padding-inline: 9.5px;
+        gap: 17.5px;
+        cursor: pointer;
+
+        .icon {
+            pointer-events: none;
+        }
+
+        p {
+            @include ubuntu-bold-18-26;
+            color: $main-text;
+        }
+    }
+}

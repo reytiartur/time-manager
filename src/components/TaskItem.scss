@@ -1,0 +1,37 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.task {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: $light;
+    @include ubuntu-light-12-14;
+    color: $main-text;
+    width: fit-content;
+    height: 22px;
+    padding: 4px 6px;
+    border-radius: 4px;
+
+    .text-container {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    .comment-container {
+        display: flex;
+        gap: 8px;
+        color: $main-accent;
+        @include ubuntu-regular-12-16;
+
+        .task-comment {
+            display: flex;
+            text-align: start;
+        }
+    }
+}

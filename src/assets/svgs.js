@@ -128,3 +128,56 @@ export const PlusIcon = () => (
         <path d="M10 20C4.47967 19.994 0.00606237 15.5204 0 10V9.80002C0.109931 4.30455 4.63459 -0.0720257 10.1307 0.000898217C15.6268 0.0738221 20.0337 4.5689 19.9978 10.0654C19.9619 15.5618 15.4966 19.9989 10 20ZM5 9.00002V11H9V15H11V11H15V9.00002H11V5.00002H9V9.00002H5Z" fill="currentColor"/>
     </svg>
 )
+
+export const ArrowBack = () => (
+    <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg" className="icon">
+        <path d="M0.5 5L5.5 10V0L0.5 5Z" fill="#114861"/>
+    </svg>
+)
+
+export const EditIcon = () => (
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="icon edit-icon">
+        <path d="M1.315 14.4342C1.10461 14.4339 0.904046 14.3452 0.762245 14.1897C0.617829 14.0356 0.546068 13.8271 0.564995 13.6167L0.748745 11.5962L9.23725 3.11074L11.89 5.76274L3.40375 14.2475L1.38325 14.4312C1.36 14.4335 1.33675 14.4342 1.315 14.4342ZM12.4195 5.23249L9.7675 2.58049L11.3582 0.98974C11.4989 0.848908 11.6898 0.769775 11.8889 0.769775C12.0879 0.769775 12.2788 0.848908 12.4195 0.98974L14.0102 2.58049C14.1511 2.72117 14.2302 2.91206 14.2302 3.11112C14.2302 3.31017 14.1511 3.50106 14.0102 3.64174L12.4202 5.23174L12.4195 5.23249Z" fill="currentColor"/>
+    </svg>
+)
+
+export const AttentionIcon = () => (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="icon">
+        <path d="M8 15.5C3.85786 15.5 0.5 12.1421 0.5 8C0.5 3.85786 3.85786 0.5 8 0.5C12.1421 0.5 15.5 3.85786 15.5 8C15.4955 12.1403 12.1403 15.4955 8 15.5ZM6.4925 7.2425V8.75H7.2425V11.75H9.5075V10.25H8.75L8.7575 7.24325L6.4925 7.2425ZM7.2425 4.25V5.76425H8.7575V4.25H7.2425Z" fill="#114861"/>
+    </svg>
+)
+
+export const DeleteIcon = () => (
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" className="icon">
+        <g clipPath="url(#clip0_942_2666)">
+            <path d="M3 5.25H15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M7.5 8.25V12.75" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M10.5 8.25V12.75" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M3.75 5.25L4.5 14.25C4.5 14.6478 4.65804 15.0294 4.93934 15.3107C5.22064 15.592 5.60218 15.75 6 15.75H12C12.3978 15.75 12.7794 15.592 13.0607 15.3107C13.342 15.0294 13.5 14.6478 13.5 14.25L14.25 5.25" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M6.75 5.25V3C6.75 2.80109 6.82902 2.61032 6.96967 2.46967C7.11032 2.32902 7.30109 2.25 7.5 2.25H10.5C10.6989 2.25 10.8897 2.32902 11.0303 2.46967C11.171 2.61032 11.25 2.80109 11.25 3V5.25" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </g>
+        <defs>
+            <clipPath id="clip0_942_2666">
+                <rect width="18" height="18" fill="white"/>
+            </clipPath>
+        </defs>
+    </svg>
+)
+
+export const ArrowLeftIcon = () => (
+    <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg" className="icon">
+        <path d="M6.65135 0.636261L0.287598 7.00001L6.65135 13.3638L7.7126 12.3033L2.4086 7.00001L7.7126 1.69676L6.65135 0.636261Z" fill="#114861"/>
+    </svg>
+)
+
+export const ArrowRightIcon = () => (
+    <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg" className="icon">
+        <path d="M1.34865 13.3637L7.7124 6.99999L1.34865 0.636238L0.287403 1.69674L5.5914 6.99999L0.287403 12.3032L1.34865 13.3637Z" fill="#114861"/>
+    </svg>
+)
+
+export const CommentIcon = () => (
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="icon">
+        <path d="M0.75 11.25V1.91667C0.75 1.27233 1.27233 0.75 1.91667 0.75H10.0833C10.7277 0.75 11.25 1.27233 11.25 1.91667V7.75C11.25 8.39433 10.7277 8.91667 10.0833 8.91667H4.25C3.99749 8.9162 3.75173 8.99812 3.55 9.15L0.75 11.25ZM1.91667 1.91667V8.91667L3.1615 7.98333C3.36313 7.83126 3.60896 7.74932 3.8615 7.75H10.0833V1.91667H1.91667Z" fill="#114861"/>
+    </svg>
+)
