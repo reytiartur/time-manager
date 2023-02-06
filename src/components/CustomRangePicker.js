@@ -3,6 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { CalendarIcon } from "../assets/svgs";
 import './CustomRangePicker.scss'
+import enGB from "date-fns/esm/locale/en-GB/index.js";
 
 const CustomRangePicker = ({inputs, setInputs, children}) => {
     const [startDate, setStartDate] = useState(inputs.period[0] ? new Date(inputs.period[0]) : null);
@@ -26,6 +27,7 @@ const CustomRangePicker = ({inputs, setInputs, children}) => {
             calendarClassName="calendar"
             className="calendar-input"
             dateFormat="dd/MM/yy"
+            locale={enGB}
         />
         <label htmlFor={children}>{children}</label>
         <div className="wrapper">

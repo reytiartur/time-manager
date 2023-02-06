@@ -13,8 +13,8 @@ const NewProject = ({inputs, setInputs, timebank, setTimebank}) => {
   
   return (
     <div className="inputs-container">
-        <ProjectDetailsBlock inputs={inputs} setInputs={setInputs} handleChange={handleChange} />
-        <TimebankDetailsBlock timebank={timebank} setTimebank={setTimebank} handleChange={handleChange} />
+        <ProjectDetailsBlock inputs={inputs} setInputs={setInputs} handleChange={(e) => handleChange(e, setInputs)} />
+        <TimebankDetailsBlock timebank={timebank} setTimebank={setTimebank} handleChange={(e) => handleChange(e, setTimebank)} />
         <TechnologiesBlock inputs={inputs} setInputs={setInputs} />
     </div>
   )

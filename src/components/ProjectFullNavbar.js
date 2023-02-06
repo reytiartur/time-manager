@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import { parseISO } from 'date-fns'
+import React, { useContext, useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { PlusIcon } from '../assets/svgs'
 import { handleEdit } from '../features/projectsSlice'
+import { DateContext } from '../utils/dateContext'
 import AssignedIcon from './AssignedIcon'
 import CustomButton from './CustomButton'
 import CustomTooltip from './CustomTooltip'
@@ -13,6 +15,7 @@ const ProjectFullNavbar = ({project, selected, setSelected}) => {
     const [open, setOpen] = useState(false)
     const [inputs, setInputs] = useState({...project})
     const dispatch = useDispatch()
+    const { setSelectedDate, setActiveDate } = useContext(DateContext);
 
     const handleSelect = (name) => {
         const newSelected = project.timebank.findIndex(bank => bank.name === name)
@@ -22,6 +25,14 @@ const ProjectFullNavbar = ({project, selected, setSelected}) => {
     const handleAction = () => {
         dispatch(handleEdit(inputs))
     }
+
+    useEffect(() => {
+        setActiveDate(parseISO(project.timebank[selected].period[0]))
+    }, [selected])
+
+    useEffect(() => {
+        setInputs({...project})
+    }, [project])
 
   return (
     <>

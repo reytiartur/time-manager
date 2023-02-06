@@ -5,6 +5,7 @@ import Calendar from '../components/Calendar'
 import ProjectEdits from '../components/ProjectEdits'
 import ProjectFullNavbar from '../components/ProjectFullNavbar'
 import ProjectHeader from '../components/ProjectHeader'
+import './ProjectFullScreen.scss'
 
 const ProjectFullScreen = () => {
     const { state } = useLocation()
@@ -13,7 +14,7 @@ const ProjectFullScreen = () => {
     const [selected, setSelected] = useState(0)
 
   return (
-    <div>
+    <div className='full-screen-container'>
       <ProjectHeader project={project} />
       <ProjectEdits project={project} />
       <ProjectFullNavbar project={project} selected={selected} setSelected={setSelected} />

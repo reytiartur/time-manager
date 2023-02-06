@@ -91,5 +91,24 @@
             color: $blue-accent;
             padding: 0;
         }
+
+        &__light {
+            border: none;
+            background: none;
+            color: $main-accent;
+            text-decoration: underline;
+            transition: all 200ms ease-in-out;
+            @include ubuntu-light-12-14;
+            padding: 0;
+            width: min-content;
+
+            &:hover {
+                @include ubuntu-light-12-14;
+                border: none;
+                background: none;
+                color: $blue-accent;
+                padding: 0;
+            }
+        }
     }
 }

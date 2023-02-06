@@ -9,7 +9,7 @@ import './ProjectRow.scss'
 const ProjectRow = ({ project }) => {
   const { projectName, client, timebank, archived } = project;
   const saldo = timebank[0].hours - timebank[0].hoursSpent;
-  const progressStyle = { right: `${100 - ((timebank[0].hoursSpent / timebank[0].hours) * 100)}%`};
+  const progressStyle = 100 - ((timebank[0].hoursSpent / timebank[0].hours) * 100);
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const [open, setOpen] = useState(false)
@@ -51,8 +51,8 @@ const ProjectRow = ({ project }) => {
         </td>
         <td className='project-period'>
           <div className='date'>
-            {`${start} - ${end}`}
-            <div style={progressStyle} className={`progress ${saldo <= 40 ? 'danger' : saldo <= (timebank[0].hours / 2) ? 'warning' : 'grey'}`} />
+            <p className='date-text'>{`${start} - ${end}`}</p>
+            <div style={progressStyle < 0 ? {right: '0'} : {right: progressStyle} } className={`progress ${saldo <= 40 ? 'danger' : saldo <= (timebank[0].hours / 2) ? 'warning' : 'grey'}`} />
           </div>
         </td>
         <td className='project-numbers'>{timebank[0].hours} h</td>

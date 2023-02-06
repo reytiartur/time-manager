@@ -136,7 +136,7 @@ export const ArrowBack = () => (
 )
 
 export const EditIcon = () => (
-    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="icon">
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="icon edit-icon">
         <path d="M1.315 14.4342C1.10461 14.4339 0.904046 14.3452 0.762245 14.1897C0.617829 14.0356 0.546068 13.8271 0.564995 13.6167L0.748745 11.5962L9.23725 3.11074L11.89 5.76274L3.40375 14.2475L1.38325 14.4312C1.36 14.4335 1.33675 14.4342 1.315 14.4342ZM12.4195 5.23249L9.7675 2.58049L11.3582 0.98974C11.4989 0.848908 11.6898 0.769775 11.8889 0.769775C12.0879 0.769775 12.2788 0.848908 12.4195 0.98974L14.0102 2.58049C14.1511 2.72117 14.2302 2.91206 14.2302 3.11112C14.2302 3.31017 14.1511 3.50106 14.0102 3.64174L12.4202 5.23174L12.4195 5.23249Z" fill="currentColor"/>
     </svg>
 )
@@ -161,5 +161,23 @@ export const DeleteIcon = () => (
                 <rect width="18" height="18" fill="white"/>
             </clipPath>
         </defs>
+    </svg>
+)
+
+export const ArrowLeftIcon = () => (
+    <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg" className="icon">
+        <path d="M6.65135 0.636261L0.287598 7.00001L6.65135 13.3638L7.7126 12.3033L2.4086 7.00001L7.7126 1.69676L6.65135 0.636261Z" fill="#114861"/>
+    </svg>
+)
+
+export const ArrowRightIcon = () => (
+    <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg" className="icon">
+        <path d="M1.34865 13.3637L7.7124 6.99999L1.34865 0.636238L0.287403 1.69674L5.5914 6.99999L0.287403 12.3032L1.34865 13.3637Z" fill="#114861"/>
+    </svg>
+)
+
+export const CommentIcon = () => (
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="icon">
+        <path d="M0.75 11.25V1.91667C0.75 1.27233 1.27233 0.75 1.91667 0.75H10.0833C10.7277 0.75 11.25 1.27233 11.25 1.91667V7.75C11.25 8.39433 10.7277 8.91667 10.0833 8.91667H4.25C3.99749 8.9162 3.75173 8.99812 3.55 9.15L0.75 11.25ZM1.91667 1.91667V8.91667L3.1615 7.98333C3.36313 7.83126 3.60896 7.74932 3.8615 7.75H10.0833V1.91667H1.91667Z" fill="#114861"/>
     </svg>
 )

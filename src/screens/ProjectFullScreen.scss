@@ -1,0 +1,8 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.full-screen-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}

@@ -1,0 +1,39 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.tasks-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(60px, max-content));
+    gap: 12px;
+
+    .task {
+        @include ubuntu-regular-14-20;
+        min-height: 28px;
+        display: flex;
+        width: max-content;
+       
+        p {
+            margin: 0;
+        }
+
+        &__full {
+            grid-column: 1/-1;
+            width: 100%;
+            height: max-content;
+            gap: 4px;
+
+            .icon-wrapper {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .icon {
+
+                    path {
+                        fill: $main-accent;
+                    }
+                }
+            }
+        }
+    }
+}
