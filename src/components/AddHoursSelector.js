@@ -34,7 +34,9 @@ const AddHoursSelector = ({options, date, tasks, setTasks, children, technology,
 
   const findTechnology = () => {
     const obj = tasks[date]?.find(tech => tech.name === technology?.name && tech.hour === technology?.hour)
+    console.log(obj)
     const index = tasks[date]?.indexOf(obj)
+    console.log(index)
     return index
   }
 
@@ -44,26 +46,25 @@ const AddHoursSelector = ({options, date, tasks, setTasks, children, technology,
   }
 
   const deleteComment = () => {
-    setValues((state) => ({...state, comment: ''}))
-    const index = findTechnology()
-    setTasks({[date]: [...tasks[date]?.slice(0, index), values, ...tasks[date]?.slice(index + 1)]})
+    const newValues = {...values, comment: ''}
+    setValues(newValues)
+    handleEdit(newValues)
     setShow(false)
   }
 
-  const handleEdit = () => {
+  const handleEdit = (values) => {
     if(!values.selected || !values.hour) return;
 
     const index = findTechnology()
     setTasks({[date]: [...tasks[date]?.slice(0, index), values, ...tasks[date]?.slice(index + 1)]})
   }
 
-  useEffect(() => {
-    if(!technology) return;
-    
-    const index = findTechnology()
-    console.log(index, values)
-    setTasks({[date]: [...tasks[date]?.slice(0, index), values, ...tasks[date]?.slice(index + 1)]})
-  }, [values.selected])
+  const handleEditSelect = (option) => {
+    handleSelect(option)
+    const newTask = {...values, selected: option}
+    handleEdit(newTask)
+  }
+
 
   return (
     <div className="add-hours-row">
@@ -72,11 +73,11 @@ const AddHoursSelector = ({options, date, tasks, setTasks, children, technology,
         <div className="content">{values.selected ? `${values.selected}`: null}</div>
         <DropdownIcon />
         <div className="options">{options.map(option => (
-            <div key={option} className="option" onClick={() => handleSelect(option)}>{option}</div>
+            <div key={option} className="option" onClick={technology ? () => handleEditSelect(option) : () => handleSelect(option)}>{option}</div>
           ))}
         </div>
       </div>
-      <CustomInput size='72px' type='number' name='hour' onChange={(e) => handleChange(e)} onBlur={technology ? handleEdit : null} value={values.hour}>Hours</CustomInput>    
+      <CustomInput size='72px' type='number' name='hour' onChange={(e) => handleChange(e)} onBlur={technology ? () => handleEdit(values) : null} value={values.hour}>Hours</CustomInput>    
       {technology ? (
         <div style={style} onClick={() => deleteTechnology()}>
           <CloseIcon />
@@ -91,7 +92,7 @@ const AddHoursSelector = ({options, date, tasks, setTasks, children, technology,
         </div>) : (
         <div className="comment-btn">
             <div className='custom-input' style={{width: '337px'}}>
-                <input type='text' placeholder="Description (optional)" name='comment' value={values.comment} onChange={(e) => handleChange(e)} onBlur={technology ? handleEdit : null} />
+                <input type='text' placeholder="Description (optional)" name='comment' value={values.comment} onChange={(e) => handleChange(e)} onBlur={technology ? () => handleEdit(values) : null} />
             </div>
             <div style={style} onClick={() => deleteComment()}>
                 <CloseIcon />
