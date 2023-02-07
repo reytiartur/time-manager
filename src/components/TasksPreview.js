@@ -5,15 +5,21 @@ import './TasksPreview.scss'
 const TasksPreview = ({timebank, selectedDate}) => {
     const hasDate = timebank.findIndex(item => item.date?.hasOwnProperty(selectedDate));
     const tasks = timebank[hasDate]?.date[selectedDate][0]
-    const sorted = [...tasks].sort((a, b) => {
-        return a.comment !== '' ? 1 : b.comment !== '' ? -1 : 0
-    });
+    const noComment = tasks.filter(task => task.comment === "")
+    const comment = tasks.filter(task => task.comment !== "")
 
     return (
         <div className='tasks-preview'>
-            {sorted.map(task => (
-                <TaskItem key={task?.selected + task.hour + Math.random()} name={task.selected} hour={task.hour} comment={task.comment} />
-            ))}
+            <div className="not-commented">
+                {noComment.map(task => (
+                    <TaskItem key={task?.selected + task.hour + Math.random()} name={task.selected} hour={task.hour} comment={task.comment} />
+                ))}
+            </div>
+            <div className="commented">
+                {comment.map(task => (
+                    <TaskItem key={task?.selected + task.hour + Math.random()} name={task.selected} hour={task.hour} comment={task.comment} />
+                ))}
+            </div>
         </div>
     )
 }

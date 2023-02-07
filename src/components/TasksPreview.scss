@@ -2,23 +2,29 @@
 @use '../utils/mixins' as *;
 
 .tasks-preview {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(60px, max-content));
+    display: flex;
+    flex-direction: column;
     gap: 12px;
 
+    .commented, .not-commented {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
     .task {
+        flex: 0 0 max-content;
         @include ubuntu-regular-14-20;
         min-height: 28px;
         display: flex;
-        width: max-content;
+        width: 100%;
        
         p {
             margin: 0;
         }
 
         &__full {
-            grid-column: 1/-1;
-            width: 100%;
+            flex-basis: 100%;
             height: max-content;
             gap: 4px;
 

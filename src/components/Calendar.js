@@ -28,14 +28,10 @@ const Calendar = ({ project, selected, setSelected }) => {
 
   const parsedDate = selectedDate?.split(' ').splice(1, 2).join(' ')
 
-  const handleSelect = (date, setOpen) => {
-    const newSelected = timebank.findIndex(bank => isWithinInterval(new Date(date), { start: new Date(bank.period[0]), end: new Date(bank.period[1])}))
-
-    if(newSelected >= 0) {
-      setSelected(newSelected)
-      setSelectedDate(date.toDateString())
-      setOpen(true)
-    }
+  const handleSelect = (date, setOpen, index) => {
+    setSelected(index)
+    setSelectedDate(date.toDateString())
+    setOpen(true)
   }
 
   useEffect(() => {
@@ -45,6 +41,7 @@ const Calendar = ({ project, selected, setSelected }) => {
   const handleCreate = () => {
     const key = Object.keys(tasks)
     const values = Object.values(tasks)
+    console.log(values)
     const hours = Object.values(timebank[selected].date).map(item => item[0].reduce((acc, item) => { return acc + Number(item.hour)}, 0)).reduce((acc, item) => { return acc + item}, 0)
     const newTimebank = {...project.timebank[selected], date: {...project.timebank[selected].date, [key]: values} , hoursSpent: hours}
     const newObj = {...project, timebank: [...project.timebank.slice(0, selected), newTimebank, ...project.timebank.slice(selected + 1)]}
@@ -71,15 +68,19 @@ const Calendar = ({ project, selected, setSelected }) => {
       const thisDate = currentDate;
       const hasDate = project.timebank.findIndex(item => item.date?.hasOwnProperty(thisDate.toDateString()));
       const items = project.timebank[hasDate]?.date[thisDate.toDateString()][0]
+      const withinInterval = timebank.findIndex(bank => isWithinInterval(new Date(thisDate), { start: new Date(bank.period[0]), end: new Date(bank.period[1])}))
       week.push(
-        <div key={thisDate + day} className={`day ${isSameMonth(currentDate, activeDate) ? "" : "inactiveDay"} ${isSameDay(currentDate, new Date()) ? "today" : ""}`} onClick={hasDate >= 0 ? () => handleSelect(thisDate, setOpenTasks) : () => handleSelect(thisDate, setOpenAdd)}>
+        <div key={thisDate + day} className={`day ${isSameMonth(currentDate, activeDate) ? "" : "inactiveDay"} ${isSameDay(currentDate, new Date()) ? "today" : ""}`} onClick={withinInterval >=0 && hasDate >= 0 ? () => handleSelect(thisDate, setOpenTasks, withinInterval) : withinInterval >=0 && hasDate < 0 ? () => handleSelect(thisDate, setOpenAdd, withinInterval) : null}>
           <div className="date">
             {format(thisDate, "d")}
           </div>
           <div className="day-content">
-            {hasDate < 0 ? <div className="icon-wrapper">
+            {hasDate < 0 && withinInterval >= 0 ? <div className="icon-wrapper">
               <p>Add hours</p>
               <PlusIcon />
+            </div> : null}
+            {withinInterval < 0 ? <div className="icon-wrapper">
+              <p>There is no timebank</p>
             </div> : null}
             <div className="tasks-container">
               {hasDate >= 0 ? items?.slice(0, 2).map(item => (
@@ -114,10 +115,6 @@ const Calendar = ({ project, selected, setSelected }) => {
     );
     currentDate = addDays(currentDate, 7);
   }
-
-  useEffect(() => {
-    console.log(tasks)
-  }, [tasks])
 
   return (
     <>
