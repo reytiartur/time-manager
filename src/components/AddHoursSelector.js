@@ -3,7 +3,7 @@ import { CloseIcon, DropdownIcon, PlusIcon } from '../assets/svgs'
 import CustomInput from './CustomInput'
 import './AddHoursSelector.scss'
 import CustomButton from './CustomButton'
-import { useEffect } from 'react'
+import './Calendar.scss'
 
 const AddHoursSelector = ({options, date, tasks, setTasks, children, technology, comment, ...props}) => {
   const [open, setOpen] = useState(false)
@@ -34,9 +34,7 @@ const AddHoursSelector = ({options, date, tasks, setTasks, children, technology,
 
   const findTechnology = () => {
     const obj = tasks[date]?.find(tech => tech.name === technology?.name && tech.hour === technology?.hour)
-    console.log(obj)
     const index = tasks[date]?.indexOf(obj)
-    console.log(index)
     return index
   }
 

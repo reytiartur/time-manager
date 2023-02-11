@@ -20,15 +20,12 @@ const ProjectFullNavbar = ({project, selected, setSelected}) => {
     const handleSelect = (name) => {
         const newSelected = project.timebank.findIndex(bank => bank.name === name)
         setSelected(newSelected)
+        setActiveDate(parseISO(project?.timebank[newSelected]?.period[0]))
     }
 
     const handleAction = () => {
         dispatch(handleEdit(inputs))
     }
-
-    useEffect(() => {
-        setActiveDate(parseISO(project.timebank[selected].period[0]))
-    }, [selected])
 
     useEffect(() => {
         setInputs({...project})

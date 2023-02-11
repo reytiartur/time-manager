@@ -10,7 +10,7 @@ import { useDispatch } from 'react-redux'
 import { addProject } from '../features/projectsSlice'
 import NewProject from '../components/NewProject'
 
-const defaultTimebank = {name: '', plan: '', hours: '', period: '', hoursSpent: 0}
+const defaultTimebank = {name: '', plan: '', hours: '', period: '', hoursSpent: 0, date: []}
 
 const defaultInputs = {
   projectName: '',

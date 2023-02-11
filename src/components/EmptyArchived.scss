@@ -1,0 +1,62 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.archived-empty {
+    margin-top: 60px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .head-archived {
+        @include ubuntu-bold-18-26;
+        color: $main-text;
+        margin-bottom: 10px;
+    }  
+
+    .text-archived {
+        @include ubuntu-regular-16-24;
+        color: $light-text;
+        margin-bottom: 42px;
+    }
+
+    .table-head-archived {
+        background: $light;
+        margin-bottom: 32px;
+        border-radius: 4px;
+        width: 52%;
+        height: 50px;
+        animation: pulse 2s infinite;
+    }
+
+    .rows-container {
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+        width: 52%;
+
+        .row-archived {
+            border-radius: 4px;
+            border: 1px solid $light;
+            background: $card-bg;
+            width: auto;
+            height: 35px;
+            animation: pulse 2s infinite;
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            -moz-box-shadow: 0 0 0 0 rgba($light, .4);
+            box-shadow: 0 0 0 0 rgba($light, .4);
+        }
+        70% {
+            -moz-box-shadow: 0 0 0 1px $light;
+            box-shadow: 0 0 0 1px $light;
+        }
+        100% {
+            -moz-box-shadow: 0 0 0 0 $light;
+            box-shadow: 0 0 0 0 $light;
+        }
+    }
+}
