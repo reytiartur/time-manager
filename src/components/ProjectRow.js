@@ -20,6 +20,7 @@ const ProjectRow = ({ project }) => {
   const handleToggle = () => {
     const newObj = {...project, archived: !archived}
     dispatch(handleEdit(newObj))
+    handleClose()
   }
 
   const handleOpen = () => {

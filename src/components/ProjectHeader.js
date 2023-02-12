@@ -24,6 +24,7 @@ const ProjectHeader = ({ project }) => {
     const handleToggle = () => {
         const newObj = {...project, archived: !archived}
         dispatch(handleEdit(newObj))
+        handleClose()
     }
 
   return (

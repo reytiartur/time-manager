@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { AttentionIcon, DeleteIcon, EditIcon, PlusIcon } from '../assets/svgs'
 import { handleEdit } from '../features/projectsSlice'
@@ -15,6 +15,7 @@ const defaultInputs = {
     period: ['', ''],
     hoursSpent: 0,
     periodColor: "grey",
+    date: []
 }
 
 const ProjectEditTimebank = ({ header, timebank, project }) => {
@@ -28,6 +29,11 @@ const ProjectEditTimebank = ({ header, timebank, project }) => {
     
     const [inputs, setInputs] = useState(defaultInputs)
     const [bank, setBank] = useState({...timebank[0]})
+    
+
+    useEffect(() => {
+        setBank({...timebank[0]})
+    }, [timebank])
 
     const handleOpenDelete = (i) => {
         setDeleteIndex(i)
@@ -48,11 +54,19 @@ const ProjectEditTimebank = ({ header, timebank, project }) => {
     const handleNew = () => {
         const newObj = {...project, timebank: [{...inputs}, ...timebank]}
         dispatch(handleEdit(newObj))
+        setOpenSecond(false)
+    }
+
+    const handleEditChange = (e) => {
+        const { name, value } = e.target;
+        setBank({...bank, [name]: value})
     }
 
     const handleEditCurrent = () => {
-        const newObj = {...project, timebank: [{...bank}, ...[timebank].slice(1)]}
+        const newObj = {...project, timebank: [{...bank}, ...timebank.slice(1)]}
         dispatch(handleEdit(newObj))
+        setOpenThird(false)
+        setInputs(defaultInputs)
     }
 
     return (
@@ -109,7 +123,7 @@ const ProjectEditTimebank = ({ header, timebank, project }) => {
             </Popup>
 
             <Popup header="Edit timebank" handleAction={handleEditCurrent} handleClose={() => setOpenThird(false)} actions={['Cancel', 'Save changes']} open={openThird} size='big'>
-                <TimebankDetailsBlock timebank={bank} setTimebank={setBank} handleChange={handleChange}  />
+                <TimebankDetailsBlock timebank={bank} setTimebank={setBank} handleChange={handleEditChange}  />
             </Popup>
 
             <Popup header="Delete timebank" handleAction={() => handleDelete(deleteIndex)} handleClose={() => setOpenDelete(false)} actions={['Cancel', 'Delete']} open={openDelete}>

@@ -20,12 +20,29 @@
     }
 
     input {
-        color: $light-text;
+        color: $main-text;
         border: none;
         outline: none;
         width: 233px;
         padding-left: 46px;
         @include ubuntu-regular-14-20;
+
+        &:focus > & {
+            outline: 1px solid $main-accent;
+        }
+
+        &::placeholder {
+            color: $light-text;
+            opacity: 1;
+          }
+          
+        &:-ms-input-placeholder {
+            color: $light-text;
+          }
+          
+        &::-ms-input-placeholder {
+            color: $light-text;
+          }
     }
 
     button {

@@ -11,6 +11,7 @@ import { handleEdit } from '../features/projectsSlice';
 import TasksPreview from './TasksPreview';
 import { useEffect } from 'react';
 import Weeks from './Weeks';
+import DateSelect from './DateSelect';
 
 const Calendar = ({ project, selected, setSelected }) => {
   const { timebank } = project;
@@ -40,6 +41,7 @@ const Calendar = ({ project, selected, setSelected }) => {
     const newTimebank = {...project.timebank[selected], date: {...project.timebank[selected].date, [key]: values} , hoursSpent: hours}
     const newObj = {...project, timebank: [...project.timebank.slice(0, selected), newTimebank, ...project.timebank.slice(selected + 1)]}
     dispatch(handleEdit(newObj))
+    setOpenAdd(false)
   }
 
   const handleOpenEdit = () => {
@@ -66,16 +68,13 @@ const Calendar = ({ project, selected, setSelected }) => {
                   </div>
               </div>
               <div className="calendar-selector">
-                  <div className="icon-wrapper" onClick={() => setActiveDate(subMonths(activeDate, 1))}>
-                      <ArrowLeftIcon />
-                  </div>
-                  <div className="icon-wrapper" onClick={() => setActiveDate(addMonths(activeDate, 1))}>
-                      <ArrowRightIcon />   
-                  </div>
-                  <div className="month-selector">
-                      <p className="month">{format(activeDate, "MMMM yyyy")}</p>
-                      <DropdownIcon />
-                  </div>
+                <div className="icon-wrapper" onClick={() => setActiveDate(subMonths(activeDate, 1))}>
+                    <ArrowLeftIcon />
+                </div>
+                <div className="icon-wrapper" onClick={() => setActiveDate(addMonths(activeDate, 1))}>
+                    <ArrowRightIcon />   
+                </div>
+                <DateSelect activeDate={activeDate} setActiveDate={setActiveDate} />
               </div>
           </div>
 

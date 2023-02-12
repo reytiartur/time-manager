@@ -68,9 +68,11 @@
                 cursor: pointer;
                 display: flex;
                 align-items: center;
+                justify-content: space-between;
                 gap: 6px;
                 width: 150px;
                 text-align: center;
+                position: relative;
     
                 .icon {
                     pointer-events: none;
@@ -78,8 +80,19 @@
     
                 .month {
                     margin: 0;
+                    margin-right: auto;
                     @include ubuntu-bold-16-24;
                     color: $main-text;
+                }
+
+                .month-picker {
+                    position: absolute;
+                    top: 25px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    left: 0;
+                    right: 0;
+                    z-index: 5;
                 }
             }
         }

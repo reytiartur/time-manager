@@ -10,7 +10,7 @@ import { useDispatch } from 'react-redux'
 import { addProject } from '../features/projectsSlice'
 import NewProject from '../components/NewProject'
 
-const defaultTimebank = {name: '', plan: '', hours: '', period: '', hoursSpent: 0, date: []}
+const defaultTimebank = {name: '', plan: '', hours: '', period: [], hoursSpent: 0, date: []}
 
 const defaultInputs = {
   projectName: '',
@@ -39,8 +39,11 @@ const ProjectsScreen = () => {
   }
   
   const handleAdd = () => {
+    if(inputs.pricePerHour.length = 0 || timebank.period.length < 2) return;
+
     dispatch(addProject(inputs))
     handleDefault()
+    handleClose()
   }
 
   const handleDefault = () => {

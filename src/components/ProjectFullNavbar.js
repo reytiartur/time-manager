@@ -25,6 +25,7 @@ const ProjectFullNavbar = ({project, selected, setSelected}) => {
 
     const handleAction = () => {
         dispatch(handleEdit(inputs))
+        setOpen(false)
     }
 
     useEffect(() => {

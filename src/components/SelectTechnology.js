@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { CloseIcon, DropdownIcon, PlusIcon } from '../assets/svgs'
-import CustomButton from './CustomButton'
 import CustomInput from './CustomInput'
 import './CustomSelect.scss'
 
