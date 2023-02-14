@@ -30,7 +30,7 @@ const Weeks = ({ setSelected, timebank, setOpenAdd, setOpenTasks }) => {
     for (let day = 0; day < 7; day++) {
         const thisDate = currentDate;
         const hasDate = timebank.findIndex(item => item.date?.hasOwnProperty(thisDate.toDateString()));
-        const items = timebank[hasDate]?.date[thisDate.toDateString()][0]
+        const items = timebank[hasDate]?.date[thisDate.toDateString()]
         const withinInterval = timebank.findIndex(bank => isWithinInterval(new Date(thisDate), { start: new Date(bank.period[0]), end: new Date(bank.period[1])}))
         week.push(
         <div key={thisDate + day} className={`day ${isSameMonth(currentDate, activeDate) ? "" : "inactiveDay"} ${isSameDay(new Date(currentDate), new Date()) ? "today" : ""}`} onClick={withinInterval >=0 && hasDate >= 0 ? () => handleSelect(thisDate, setOpenTasks, withinInterval) : withinInterval >=0 && hasDate < 0 ? () => handleSelect(thisDate, setOpenAdd, withinInterval) : null}>

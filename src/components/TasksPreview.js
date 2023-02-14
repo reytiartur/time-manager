@@ -4,7 +4,7 @@ import './TasksPreview.scss'
 
 const TasksPreview = ({timebank, selectedDate}) => {
     const hasDate = timebank.findIndex(item => item.date?.hasOwnProperty(selectedDate));
-    const tasks = timebank[hasDate]?.date[selectedDate][0]
+    const tasks = timebank[hasDate]?.date[selectedDate]
     const noComment = tasks.filter(task => task.comment === "")
     const comment = tasks.filter(task => task.comment !== "")
 

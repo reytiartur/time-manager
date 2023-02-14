@@ -24,6 +24,16 @@ const ProjectFullNavbar = ({project, selected, setSelected}) => {
     }
 
     const handleAction = () => {
+        if((!inputs?.pricePerHour?.[0]?.name && inputs?.pricePerHour?.[0]?.price) || (inputs?.pricePerHour?.[0]?.name && !inputs?.pricePerHour?.[0]?.price)) return;
+
+        if(!inputs?.pricePerHour?.[0]?.name && !inputs?.pricePerHour?.[0]?.price) {
+            const newValues = {...inputs, pricePerHour: [...inputs.pricePerHour.slice(1)]}
+            setInputs(newValues)
+            dispatch(handleEdit(newValues))
+            setOpen(false)
+            return;
+        }
+
         dispatch(handleEdit(inputs))
         setOpen(false)
     }
