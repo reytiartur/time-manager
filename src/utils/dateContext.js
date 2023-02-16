@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { createContext, useState } from "react";
 
 export const DateContext = createContext({
@@ -9,8 +9,8 @@ export const DateContext = createContext({
 })
  
 export const DateProvider = ({ children }) => {
-    const [selectedDate, setSelectedDate] = useState(new Date().toDateString());
-    const [activeDate, setActiveDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(new Date().toDateString());
+  const [activeDate, setActiveDate] = useState(new Date());
 
   const value = { selectedDate, setSelectedDate, activeDate, setActiveDate }
 

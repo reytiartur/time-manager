@@ -8,7 +8,6 @@ const Popup = ({ header, handleAction, handleClose, actions, children, open, siz
 
   const handleSubmit = () => {
     handleAction()
-    handleClose()
   }
 
   return (

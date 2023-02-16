@@ -6,15 +6,17 @@ import ProjectDetailsBlock from './ProjectDetailsBlock'
 import ProjectEditTimebank from './ProjectEditTimebank'
 import ProjectEditsBlock from './ProjectEditsBlock'
 import { useDispatch } from 'react-redux'
+import { handleEdit } from '../features/projectsSlice'
 
 const ProjectEdits = ({project}) => {
   const [open, setOpen] = useState(false)
   const [inputs, setInputs] = useState({...project})
   const dispatch = useDispatch()
 
-  const handleEdit = () => {
+  const handleEditBlock = () => {
     const newObj = {...inputs}
     dispatch(handleEdit(newObj))
+    setOpen(false)
   }
 
   const handleChange = (e) => {
@@ -40,7 +42,7 @@ const ProjectEdits = ({project}) => {
           </div>
       </div>
 
-      <Popup header='Edit details' handleAction={handleEdit} handleClose={() => setOpen(false)} actions={['Cancel', 'Save changes']} open={open} size='big'>
+      <Popup header='Edit details' handleAction={handleEditBlock} handleClose={() => setOpen(false)} actions={['Cancel', 'Save changes']} open={open} size='big'>
         <ProjectDetailsBlock inputs={inputs} setInputs={setInputs} handleChange={handleChange} />
       </Popup>
     </>

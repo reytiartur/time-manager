@@ -9,8 +9,8 @@ const ProjectDetailsBlock = ({inputs, setInputs, handleChange}) => {
         <p className="text">Project details</p>
         <div className="rows">              
             <div className="row">
-            <CustomInput name='projectName' value={inputs.projectName} onChange={(e) => handleChange(e, setInputs)}>Project name</CustomInput>
-            <CustomInput name='projectNumber' value={inputs.projectNumber} onChange={(e) => handleChange(e, setInputs)}>Project number</CustomInput>
+            <CustomInput size='250px' name='projectName' value={inputs.projectName} onChange={(e) => handleChange(e, setInputs)}>Project name</CustomInput>
+            <CustomInput size='250px' name='projectNumber' value={inputs.projectNumber} onChange={(e) => handleChange(e, setInputs)}>Project number</CustomInput>
             </div>
             <div className="row">
             <CustomInput size='250px' name='client' value={inputs.client} onChange={(e) => handleChange(e, setInputs)}>Client</CustomInput>

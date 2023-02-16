@@ -14,7 +14,7 @@ const TimebankDetailsBlock = ({ timebank, setTimebank, handleChange }) => {
             <CustomSelect name='plan' options={['Standard (150 - 499 h)', 'Pro (500 - 1000 h)']} inputs={timebank} setInputs={setTimebank}>Timebank plan</CustomSelect>
             </div>
             <div className="row">
-            <CustomInput size='250px' name='hours' value={timebank.hours} onChange={(e) => handleChange(e, setTimebank)}>Timebank hours</CustomInput>
+            <CustomInput type='number' size='250px' name='hours' value={timebank.hours} onChange={(e) => handleChange(e, setTimebank)}>Timebank hours</CustomInput>
             <CustomRangePicker inputs={timebank} setInputs={setTimebank}>Period</CustomRangePicker>
             </div>
         </div>
