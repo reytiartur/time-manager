@@ -7,7 +7,7 @@ import { DateContext } from '../utils/dateContext';
 
 
 const Weeks = ({ setSelected, timebank, setOpenAdd, setOpenTasks }) => {
-    const { selectedDate, setSelectedDate, activeDate } = useContext(DateContext);
+    const { setSelectedDate, activeDate } = useContext(DateContext);
     const weekStartDate = startOfWeek(activeDate, { weekStartsOn: 1 });
 
     const handleSelect = (date, setOpen, index) => {

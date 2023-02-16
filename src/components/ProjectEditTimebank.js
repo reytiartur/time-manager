@@ -54,6 +54,7 @@ const ProjectEditTimebank = ({ header, timebank, project }) => {
     const handleNew = () => {
         const newObj = {...project, timebank: [{...inputs}, ...timebank]}
         dispatch(handleEdit(newObj))
+        setInputs(defaultInputs)
         setOpenSecond(false)
     }
 
@@ -109,10 +110,10 @@ const ProjectEditTimebank = ({ header, timebank, project }) => {
                         <div className="icons-wrapper-container">
                             {i === 0 ? <div className="icon-wrapper" onClick={() => setOpenThird(true)}>
                                 <EditIcon />
-                            </div> : null}
+                            </div> : 
                             <div className="icon-wrapper" onClick={() => handleOpenDelete(i)}>
                                 <DeleteIcon />
-                            </div>
+                            </div>}
                         </div>
                     </div>
                 ))}
