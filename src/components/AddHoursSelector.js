@@ -34,6 +34,7 @@ const AddHoursSelector = ({options, date, tasks, setTasks, children, technology,
 
     setTasks({[date]: [{selected: '', hour: '', comment: ''}, ...tasks[date]]})
     setValues({selected: '', hour: '', comment: ''})
+    setShow(false)
   }
 
   const deleteTechnology = () => {

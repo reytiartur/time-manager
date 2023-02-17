@@ -26,10 +26,15 @@ const CustomCarousel = ({data, selected, handleClick}) => {
             {currentIndex > 0 ? <ArrowLeftIcon /> : null}
         </div>
         <div className="carousel-slider">
-            <div className="buttons-container" style={{ transform: `translateX(-${currentIndex * (100 / show)}%)` }}>
-                {data.map((bank, i) => (
-                    <CustomButton key={bank.name} size='timebank' onClick={() => handleClick(bank.name)} className={i === selected ? "custom-button custom-button__timebank active" : "custom-button custom-button__timebank"}>{bank.name}</CustomButton>
-                ))}
+            <div className="buttons-container" style={{ transform: `translateX(-${currentIndex * (100 / show)}%)`, justifyContent: data.length < 3 ? 'flex-end' : 'flex-start' }}>
+                {data.map((bank, i) => {
+                    let name = ''
+                    bank.name.length > 15 ? name = bank.name.slice(0, 14) + '...' : name = bank.name
+
+                    return(
+                        <CustomButton key={bank.name} size='timebank' style={{ flexBasis: 100 / (data.length < 3 ? data.length : show) + '%'}} onClick={() => handleClick(bank.name)} className={i === selected ? "custom-button custom-button__timebank active" : "custom-button custom-button__timebank"}>{name}</CustomButton>
+                    )
+                })}
             </div>
         </div>
         <div className="icon-wrapper" style={currentIndex >= length - show  ? {cursor: 'alias'} : null} onClick={handleForward}>
