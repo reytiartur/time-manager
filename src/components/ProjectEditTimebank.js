@@ -70,6 +70,11 @@ const ProjectEditTimebank = ({ header, timebank, project }) => {
         setInputs(defaultInputs)
     }
 
+    const handleCancel = () => {
+        setOpenSecond(false)
+        setInputs(defaultInputs)
+    }
+
     return (
         <>
             <div className='edit-block'>
@@ -119,7 +124,7 @@ const ProjectEditTimebank = ({ header, timebank, project }) => {
                 ))}
             </Popup>
 
-            <Popup header="Create timebank" handleAction={handleNew} handleClose={() => setOpenSecond(false)} actions={['Cancel', 'Save']} open={openSecond} size='big'>
+            <Popup header="Create timebank" handleAction={handleNew} handleClose={handleCancel} actions={['Cancel', 'Save']} open={openSecond} size='big'>
                 <TimebankDetailsBlock timebank={inputs} setTimebank={setInputs} handleChange={handleChange}  />
             </Popup>
 

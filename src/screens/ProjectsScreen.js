@@ -39,7 +39,7 @@ const ProjectsScreen = () => {
   }
   
   const handleAdd = () => {
-    if(inputs.pricePerHour.length = 0 || timebank.period.length < 2) return;
+    if(inputs.pricePerHour.length === 0 || timebank.period.length < 2) return;
 
     dispatch(addProject(inputs))
     handleDefault()

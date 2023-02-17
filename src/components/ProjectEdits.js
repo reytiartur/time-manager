@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { EditIcon, PlusIcon } from '../assets/svgs'
+import { EditIcon } from '../assets/svgs'
 import Popup from './Popup'
 import './ProjectEdits.scss'
 import ProjectDetailsBlock from './ProjectDetailsBlock'
@@ -33,7 +33,7 @@ const ProjectEdits = ({project}) => {
               <ProjectEditsBlock header="Project number" text={project?.projectNumber} icon={<EditIcon />} handleAction={() => setOpen(true)} />
           </div>
           <div className="edits-container">
-              <ProjectEditsBlock header="Managers" text={project?.managers} icon={<PlusIcon />} handleAction={() => setOpen(true)} />
+              <ProjectEditsBlock header="Managers" text={project?.managers} icon={<EditIcon />} handleAction={() => setOpen(true)} />
               <div className="divider" />
               <ProjectEditsBlock header="Project type" text={project?.projectType} icon={<EditIcon />} handleAction={() => setOpen(true)} />
           </div>
